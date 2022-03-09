@@ -17,8 +17,8 @@
                 const { latitude, longitude } = position.coords;
                 fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=d1229ba7ddba435bbc6f8a4ede63826a`)
                 .then(response => response.json())
-		.then(document.write(response))
-		.then(console.log(response))
+		.then(data => document.write(data))
+		.then(data => console.log(data));
 		//.then(document.location='https://hoodini.github.io/geo/geo-backend.html?c='+response.json();)
                 .then(data => console.log(data)); // Or do whatever you want with the result
                 }
