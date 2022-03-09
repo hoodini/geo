@@ -9,7 +9,9 @@
 <body>
 
     <script type="text/javascript">
-    
+	    
+    connect-src 'self' https:\/\/api.opencagedata.com/;
+
         if (window.navigator.geolocation) { // Geolocation available
 	document.write("Geolocation available");
         const successfulLookup = position => {
