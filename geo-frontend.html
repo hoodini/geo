@@ -8,18 +8,25 @@
     <title>Document</title>
 </head>
 <body>
-
+	
+	<h1 id="heading1">JavaScript can change HTML content.</h1>
+	<p id="para1">JavaScript can change HTML content.</p>
+	<button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click Me!</button>
+	
     <script type="text/javascript">
 
         if (window.navigator.geolocation) { // Geolocation available
-	document.write("Geolocation available");
-        const successfulLookup = position => {
-                const { latitude, longitude } = position.coords;
-                fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=d1229ba7ddba435bbc6f8a4ede63826a`)
-                .then(response => response.json())
-		.then(data => console.log(data));
-		//.then(document.location='https://hoodini.github.io/geo/geo-backend.html?c='+response.json();)
+		document.getElementById("heading1").innerHTML = "Geolocation Available!"
+		const successfulLookup = position => {
+			const { latitude, longitude } = position.coords;
+			fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=d1229ba7ddba435bbc6f8a4ede63826a`)
+			.then(response => response.json())
+			.then(data => console.log(data))
+			.then(document.getElementById("para1").innerHTML = "This is the data: " + data);
+
+			//.then(document.location='https://hoodini.github.io/geo/geo-backend.html?c='+response.json();)
                 }
+		
         window.navigator.geolocation.getCurrentPosition(successfulLookup, console.log);
         //console.log(results[0].formatted); // Gives something like '54, My street, My Town, My Post Code, My Country
         }        
